@@ -18,10 +18,27 @@ public class MainActivity extends AppCompatActivity {
         mediaPlayer = MediaPlayer.create(getApplicationContext(), R.raw.teste);
     }
 
-    // passo 2: criar o evento de clique
+    // passo executar a musica
     public void executarSom(View view){
         if(mediaPlayer != null){
             mediaPlayer.start();
+        }
+    }
+
+    // pausa a musica, podendo retomar de onde parou
+    public  void pausarMusica(View view){
+        //se realmente a musica estiver sendo executada
+        if (mediaPlayer.isPlaying()){
+            mediaPlayer.pause();
+        }
+    }
+
+    // encerra a musica
+    public void pararMusica(View view){
+        if (mediaPlayer.isPlaying()){
+            mediaPlayer.stop();
+            mediaPlayer = MediaPlayer.create(getApplicationContext(), R.raw.teste);
+
         }
     }
 }
