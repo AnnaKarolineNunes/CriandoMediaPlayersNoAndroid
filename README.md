@@ -17,7 +17,7 @@ Projeto que visa a criação de media players no android.
 
 ## Passo a passo do Play
 
--Passo 1 Após criar o layout no arquivo xml, no MainActivity.java vamos configurar o som para que o mesmo funcione ao apertar o butão de play.
+ Após criar o layout no arquivo xml, no MainActivity.java vamos configurar o som para que o mesmo funcione ao apertar o butão de play.
     ```
     
       public class MainActivity extends AppCompatActivity {
@@ -40,3 +40,12 @@ Projeto que visa a criação de media players no android.
   }
 
 ## Passo a passo do pause
+Ainda no MainActivity.java, logo após o método executarSom, devemos criar o método pausarMusica, que verifica se a existe uma musica tocando, e se existir a mesma é pausada.
+    ```
+    
+    public  void pausarMusica(View view){
+        //se realmente a musica estiver sendo executada
+        if (mediaPlayer.isPlaying()){
+            mediaPlayer.pause();
+        }
+    }
