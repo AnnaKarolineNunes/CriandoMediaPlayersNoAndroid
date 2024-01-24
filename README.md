@@ -51,3 +51,16 @@ Ainda no MainActivity.java, logo após o método executarSom, devemos criar o m�
             mediaPlayer.pause();
         }
     }
+
+## Passo a passo do stop
+Ainda no MainActivity.java, logo após o método pausarMusica, devemos criar o método pararMusica, que verifica se existe musica tocando e encerra a musica. 
+    ```
+
+      public void pararMusica(View view){
+          if (mediaPlayer.isPlaying()){
+              mediaPlayer.stop();
+              mediaPlayer = MediaPlayer.create(getApplicationContext(), R.raw.teste);
+  
+          }
+      }
+    
