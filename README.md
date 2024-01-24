@@ -11,6 +11,8 @@ Projeto que visa a criação de media players no android.
 - Play
 - Pause
 - Stop
+- Executar videos
+- 
 ## Capturas de Tela
 
 ![image](https://github.com/AnnaKarolineNunes/CriandoMediaPlayersNoAndroid/assets/101477642/6a8980f4-7249-46a8-86a4-3b59daaa9b80)
