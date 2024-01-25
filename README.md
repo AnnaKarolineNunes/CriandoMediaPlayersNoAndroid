@@ -63,4 +63,46 @@ Ainda no MainActivity.java, logo após o método pausarMusica, devemos criar o m
   
           }
       }
-    
+      
+ ## Passo a passo para controloar o volume com seekbar
+Passo 1 : No MainActivity.java, devemos criar os atributos do tipo SeekBar e AudioManager para controlar o volume 
+    ```  
+
+      private SeekBar seekVolume;
+      private AudioManager audioManager;
+      
+Passo 2: criar o método inicializarSeekBar() 
+    ```  
+
+    public void inicializarSeekBar(){
+        seekVolume = findViewById(R.id.seekVolume);
+        // configurar audio manager que verifica qual o volume atual do usuario e qual  o máximo que o dispositivo suporta
+        audioManager = (AudioManager) getSystemService(Context.AUDIO_SERVICE);
+        // recuperar os valores de volume máximo e o volume atual
+        int volumeMaximo = audioManager.getStreamMaxVolume(AudioManager.STREAM_MUSIC);
+        int volumeAtual = audioManager.getStreamVolume(AudioManager.STREAM_MUSIC);
+
+        // configura o volume maximo para o seekbar
+        seekVolume.setMax(volumeMaximo);
+
+        // configura o progresso atual do seekbar
+        seekVolume.setProgress(volumeAtual);
+        seekVolume.setOnSeekBarChangeListener(new SeekBar.OnSeekBarChangeListener() {
+            @Override
+            public void onProgressChanged(SeekBar seekBar, int progress, boolean fromUser) {
+                // mudar o progresso da seekbar ( volume da musica )
+                audioManager.setStreamVolume(AudioManager.STREAM_MUSIC, progress ,
+                        0);
+            }
+
+            @Override
+            public void onStartTrackingTouch(SeekBar seekBar) {
+
+            }
+
+            @Override
+            public void onStopTrackingTouch(SeekBar seekBar) {
+
+            }
+        });
+    }
