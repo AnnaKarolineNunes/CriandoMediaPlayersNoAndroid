@@ -11,7 +11,6 @@ Projeto que visa a criação de media players no android.
 - Play
 - Pause
 - Stop
-- Executar videos
 - Controlar volume
 ## Capturas de Tela
 
